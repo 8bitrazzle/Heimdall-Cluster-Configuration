@@ -1,0 +1,19 @@
+$TTL 1D
+@	IN 	SOA	heimdall-aux.cluster.lab. root.cluster.lab. (
+					0	; serial
+					1D	; refresh
+					1H	; retry
+					1W	; expire
+					3H )	; minimum
+
+; NAME SERVERS - NS RECORDS
+	IN	NS	heimdall-aux.cluster.lab.
+
+; NAME SERVERS - A RECORDS
+heimdall-aux.cluster.lab.	IN	A	192.168.1.200
+
+; 192.168.1.0/24 - A RECORDS
+heimdall-adm.cluster.lab.	IN	A	192.168.1.201
+heimdall-fe00.cluster.lab.	IN	A	192.168.1.202
+heimdall-fe01.cluster.lab.	IN	A	192.168.1.203
+
