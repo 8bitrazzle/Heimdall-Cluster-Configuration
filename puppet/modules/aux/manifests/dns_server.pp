@@ -13,7 +13,7 @@ class aux::dns_server {
         owner   => "root",
         group   => "named",
         mode    => "0660",
-        source  => "puppet:///modules/aux/var/fwd.cluster.lab",
+        source  => "puppet:///modules/aux/var/named/fwd.cluster.lab",
 	notify	=> Service['named'];
 	}
 
