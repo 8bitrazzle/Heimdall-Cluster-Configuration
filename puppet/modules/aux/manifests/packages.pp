@@ -3,7 +3,7 @@ class aux::packages {
     package {
 	'bind':
 		ensure => present;
-	'bind-uils':
+	'bind-utils':
 		ensure => present;
 	}
 }

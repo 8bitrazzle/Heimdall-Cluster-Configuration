@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cd /etc/puppet
-BRANCH=$(/usr/bin/git rev-parse --addrev-ref HEAD)
+BRANCH=$(/usr/bin/git rev-parse --abbrev-ref HEAD)
 /usr/bin/git pull | /user/bin/logger -t gitupdate -s
 /usr/bin/echo -e "\n\n\t\t\tRunning Puppet on branch ${BRANCH}\n\n"
 /usr/bin/puppet apply --color=false /etc/puppet/manifests/common.pp 2>&1 | /usr/bin/logger -t puppet -s
