@@ -12,7 +12,7 @@ class common::config {
         group   => 'root',
         mode    => '0770';
 	}
-    file { '/usr/site/sbin':
+    file { '/usr/site/lab/sbin':
         ensure  => directory,
         owner   => 'root',
         group   => 'root',
