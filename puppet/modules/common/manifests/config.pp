@@ -23,13 +23,15 @@ class common::config {
 	ensure	=> file,
 	owner	=> 'root',
 	group	=> 'root',
-	mode	=> '0644';
+	mode	=> '0644',
+	source	=> 'puppet:///modules/common/etc/bashrc';
 	}
     file { '/etc/resolv.conf':
         ensure  => file,
         owner   => 'root',
         group   => 'root',
-        mode    => '0644';
+        mode    => '0644',
+	source	=> 'puppet:///modules/common/etc/resolv.conf';
         }
 		
 }
