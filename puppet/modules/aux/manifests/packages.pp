@@ -17,5 +17,7 @@ class aux::packages {
                 ensure  => present;
         'compat-openldap':
                 ensure  => present;
+	'ntp':
+		ensure	=> present;
 	}
 }
