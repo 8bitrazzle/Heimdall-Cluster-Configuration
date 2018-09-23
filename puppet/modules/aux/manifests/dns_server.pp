@@ -21,7 +21,7 @@ class aux::dns_server {
         owner   => "root",
         group   => "named",
         mode    => "0660",
-        source  => "puppet:///modules/aux/var/named/reverse.c;uster.lab",
+        source  => "puppet:///modules/aux/var/named/reverse.cluster.lab",
         notify  => Service['named'];
         }
 
