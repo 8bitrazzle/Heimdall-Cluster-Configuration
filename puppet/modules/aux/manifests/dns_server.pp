@@ -16,6 +16,14 @@ class aux::dns_server {
         source  => "puppet:///modules/aux/var/named/fwd.cluster.lab",
 	notify	=> Service['named'];
 	}
+        file { "/var/named/reverse.cluster.lab":
+        ensure  => file,
+        owner   => "root",
+        group   => "named",
+        mode    => "0660",
+        source  => "puppet:///modules/aux/var/named/reverse.c;uster.lab",
+        notify  => Service['named'];
+        }
 
     service { "named":
 	ensure	=> $run_sevices,
