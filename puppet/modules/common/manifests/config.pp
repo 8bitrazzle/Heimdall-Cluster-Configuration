@@ -18,7 +18,6 @@ class common::config {
         group   => 'root',
         mode    => '0770';
         }
-
     file { '/etc/bashrc':
 	ensure	=> file,
 	owner	=> 'root',
@@ -33,6 +32,10 @@ class common::config {
         mode    => '0644',
 	source	=> 'puppet:///modules/common/etc/resolv.conf';
         }
-		
+     file { '/etc/DIR_COLORS':
+	ensure	=> file,
+	source	=> 'puppet:///modules/common/etc/DIR_COLORS';
+	}	
+	
 }
 
