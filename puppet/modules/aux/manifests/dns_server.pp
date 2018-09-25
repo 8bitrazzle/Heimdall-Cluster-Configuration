@@ -6,6 +6,7 @@ class aux::dns_server {
 	group	=> "named",
 	mode	=> "0660",
 	source	=> "puppet:///modules/aux/etc/named.conf",
+	require	=> Class['aux::packages'],
 	notify 	=> Service['named'];
 	}	
     file { "/var/named/fwd.cluster.lab":
@@ -14,6 +15,7 @@ class aux::dns_server {
         group   => "named",
         mode    => "0660",
         source  => "puppet:///modules/aux/var/named/fwd.cluster.lab",
+	require	=> Class['aux::packages'],
 	notify	=> Service['named'];
 	}
         file { "/var/named/reverse.cluster.lab":
@@ -22,6 +24,7 @@ class aux::dns_server {
         group   => "named",
         mode    => "0660",
         source  => "puppet:///modules/aux/var/named/reverse.cluster.lab",
+	require	=> Class['aux::packages'],
         notify  => Service['named'];
         }
 
