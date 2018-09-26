@@ -32,6 +32,10 @@ class common::config {
         mode    => '0644',
 	source	=> 'puppet:///modules/common/etc/resolv.conf';
         }
+    file { '/etc/selinux':
+	ensure	=> file,
+	source	=> 'puppet://modules/common/etc/selinux/conifg';
+	}
      file { '/etc/DIR_COLORS':
 	ensure	=> file,
 	source	=> 'puppet:///modules/common/etc/DIR_COLORS';
