@@ -14,7 +14,7 @@ class common::packages {
 	'htop':
 		ensure => present,
 		require => Package['epel-release'];
-	'freeipa-client':
+	'ipa-client':
 		ensure => present;
 	}
 }
