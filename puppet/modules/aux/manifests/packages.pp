@@ -7,5 +7,9 @@ class aux::packages {
 		ensure	=> present;
 	'ntp':
 		ensure	=> present;
+	'ipa-server':
+		ensure	=> present;
+	'rng-tools':
+		ensure	=> present;
 	}
 }
