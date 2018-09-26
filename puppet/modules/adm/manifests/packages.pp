@@ -47,7 +47,7 @@ class adm::packages {
 		ensure	=> present;
 	'mariadb-server':
                 ensure  => present;
-        'mariadb-ddevel':
+        'mariadb-devel':
                 ensure  => present;
         'munge':
                 ensure  => present;
