@@ -4,6 +4,7 @@ GREEN='\033[0;32m'
 RED='\033[0;31m'
 NC='\033[0m'
 
+/usr/bin/yum update -y
 if [ ! -f /etc/yum.repos.d/puppetlabs.repo ]; then
 	echo -e "${RED}WARNING: puppetlabs repo not present${NC}"
 	rpm -ivh http://yum.puppetlabs.com/puppetlabs-release-el-7.noarch.rpm
