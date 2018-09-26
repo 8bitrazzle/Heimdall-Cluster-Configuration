@@ -1,4 +1,4 @@
-class aux::packages {
+class adm::packages {
 
     package {
 	'rpm-build':
