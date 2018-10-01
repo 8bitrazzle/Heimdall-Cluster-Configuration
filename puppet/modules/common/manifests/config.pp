@@ -34,7 +34,7 @@ class common::config {
         }
     file { '/etc/selinux':
 	ensure	=> file,
-	source	=> 'puppet:///modules/common/etc/selinux/conifg';
+	source	=> 'puppet:///modules/common/etc/selinux/config';
 	}
      file { '/etc/DIR_COLORS':
 	ensure	=> file,
