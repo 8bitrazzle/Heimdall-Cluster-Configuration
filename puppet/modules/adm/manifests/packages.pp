@@ -63,5 +63,9 @@ class adm::packages {
                 ensure  => present;
         'ganglia-web':
                 ensure  => present;
+	'mpi4py-openmpi':
+		ensure	=> present;
+	'openmpi-devel':
+		ensure	=> present;
 	}
 }
