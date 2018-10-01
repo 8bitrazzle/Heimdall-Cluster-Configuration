@@ -32,7 +32,7 @@ class common::config {
         mode    => '0644',
 	source	=> 'puppet:///modules/common/etc/resolv.conf';
         }
-    file { '/etc/selinux':
+    file { '/etc/selinux/config':
 	ensure	=> file,
 	source	=> 'puppet:///modules/common/etc/selinux/config';
 	}
