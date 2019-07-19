@@ -27,7 +27,7 @@ if [ $? -eq 0 ]; then
 	chdef -t group compute ip='|heimdall-a(\d+)|192.168.1.21($1+0)|'
 	makehosts compute
 	makedns -n
-	chdef -t node heimdall-a[00-09] mac:'|($1+0)0:10:10:10:10:10|'
+	chdef -t node heimdall-a[00-09] mac='|($1+0)0:10:10:10:10:10|'
 	chdef -t node heimdall-a[00-09] netboot=pxe
 	makedhcp -n
 	makedhcp heimdall-a[00-09]
