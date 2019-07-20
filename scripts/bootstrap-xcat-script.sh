@@ -42,6 +42,10 @@ fi
 if [ $? -eq 0 ]; then
 	copycds /tmp/centos-compute-img.iso
 	lsdef -t osimage -z centos7.6-x86_64-netboot-compute | sed 's/^[^ ]\+:/Centos7.6-Stateless.img:/' | mkdef -z
+	echo "yum" >> /opt/xcat/share/xcat/netboot/centos/compute.centos7.pkglist
+	echo "yum-utils" >> /opt/xcat/share/xcat/netboot/centos/compute.centos7.pkglist
+        imgdir="$(lsdef -t osimage Centos7.6-Stateless.img | grep -i rootimgdir | sed -r 's/.{15}//')"
+        echo "cp /etc/yum.repos.d/* ${imgdir}/rootimg/etc/yum.repos.d/" >> /opt/xcat/share/xcat/netboot/centos/compute.centos7.postinstall
 	genimage Centos7.6-Stateless.img
 	packimage Centos7.6-Stateless.img
 	nodeset heimdall-a[00-09] osimage=Centos7.6-Stateless.img
