@@ -4,15 +4,27 @@ GREEN='\033[0;32m'
 RED='\033[0;31m'
 NC='\033[0m'
 
+declare -a roles=(auth, adm)
+
+case $1 in
+    auth | adm)
+        declare -r role=$1
+        ;;
+    *)
+        /usr/bin/echo -e "${RED}Incorrect role supplied. Valid roles are:${NC} ${roles[@]}"
+        exit 1
+        ;;
+esac
+
 /usr/bin/yum update -y
+
+#installs and runs puppet for the first time
 if [ ! -f /etc/yum.repos.d/puppetlabs.repo ]; then
-	echo -e "${RED}WARNING: puppetlabs repo not present${NC}"
-	rpm -ivh http://yum.puppetlabs.com/puppetlabs-release-el-7.noarch.rpm
-elif [ -e /etc/yum.repos.d/puppetlabs.repo ]; then
-	echo -e "${GREEN}Puppetlabs repo present, moving on${NC}"
+        rpm -ivh http://yum.puppetlabs.com/puppetlabs-release-el-7.noarch.rpm
 fi
 
 /usr/bin/yum -y install puppet
 /usr/bin/rm -rf /etc/puppet
-/usr/bin/ln -s /root/Heimdall-Cluster-Configuration/puppet /etc/puppet
+/usr/bin/ln -s /root/CPIN269-Configuration/puppet /etc/puppet
 /usr/bin/puppet apply --logdest /var/log/puppet/puppet-apply-common.log /etc/puppet/manifests/common.pp
+/usr/bin/puppet apply --logdest /var/log/puppet/puppet-apply-$role.log /etc/puppet/manifests/$role.pp
